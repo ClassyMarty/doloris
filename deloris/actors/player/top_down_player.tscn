@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn03m7sykxehp"]
+
+[ext_resource type="Script" uid="uid://dd06evb0hxh7" path="res://actors/player/top_down_player.gd" id="1_tbogj"]
+[ext_resource type="PackedScene" uid="uid://bwaf6lecyp4nk" path="res://actors/player/skins/craft_speeder_d.tscn" id="2_ilk7j"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ax26v"]
+points = PackedVector3Array(0.2, 0.704477, 0.858129, -0.197361, 0.266804, -1.00819, -0.207774, 0.00804968, -0.479425, 1.42222, 0.111163, 0.198181, -1.42222, 0.111163, 0.553553, -0.119267, 0.743111, -0.698454, 0.222187, 0.155564, 1.13142, -0.622013, 0.688832, 0.775828, 1.42222, 0.28895, 0.553553, -1.42222, 0.28895, 0.198181, 0.576359, 0.01203, 0.5128, -0.577743, 0.555538, 1.13142, 0.156816, 0.777935, -0.531207, 0.197361, 0.266804, -1.00819, 0.577743, 0.555538, 1.13142, 0.622013, 0.688832, 0.775828, 1.42222, 0.28895, 0.198181, -1.42222, 0.111163, 0.198181, -0.576359, 0.01203, 0.5128, 1.42222, 0.111163, 0.553553, 0.199005, 0.424642, -1.01658, 0.207774, 0.00804968, -0.479425, -0.222187, 0.155564, 1.13142, -0.0676718, 0.8, 0.184395, -0.199005, 0.424642, -1.01658, -1.42222, 0.28895, 0.553553, -0.156816, 0.777935, -0.531207, 0.119267, 0.743111, -0.698454, 0.581771, 0.00796937, -0.105429, -0.581771, 0.00796937, -0.105429, 0.588905, 0.297226, 1.07111, -0.588905, 0.297226, 1.07111)
+
+[node name="TopDownPlayer" type="CharacterBody3D"]
+script = ExtResource("1_tbogj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_ax26v")
+
+[node name="CameraSwivel" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraSwivel"]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 5, 0)
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="craft_speederD" parent="Pivot" instance=ExtResource("2_ilk7j")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
