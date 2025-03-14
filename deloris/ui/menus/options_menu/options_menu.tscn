@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk72u00fir7jx"]
+
+[ext_resource type="Script" uid="uid://bxxglvetg4ks3" path="res://ui/menus/options_menu/options_menu.gd" id="1_8oxc3"]
+[ext_resource type="Theme" uid="uid://cqvxvih8yn6na" path="res://ui/ui_resources/ui_themes/ui_theme-Pixel.tres" id="2_vl50j"]
+[ext_resource type="FontFile" uid="uid://c4vq3mjrhdq5b" path="res://ui/ui_resources/ui_fonts/ARCADECLASSIC.TTF" id="3_ib78s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jb5aa"]
+font = ExtResource("3_ib78s")
+font_size = 196
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8oxc3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -64.0
+offset_right = 35.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GameName" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_vl50j")
+text = "Protect Deloris"
+label_settings = SubResource("LabelSettings_jb5aa")
+
+[node name="BackButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_vl50j")
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
